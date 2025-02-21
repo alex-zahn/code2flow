@@ -15,7 +15,9 @@ def get_call_from_func_element(func):
     :param func ast:
     :rtype: Call|None
     """
-    assert type(func) in (ast.Attribute, ast.Name, ast.Subscript, ast.Call)
+    if not( type(func) in (ast.Attribute, ast.Name, ast.Subscript, ast.Call)):
+        return None
+        
     if type(func) == ast.Attribute:
         owner_token = []
         val = func.value
